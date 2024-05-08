@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
 </head>
 <body>
@@ -18,64 +24,63 @@
         <button class="search-icon">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <input type="text" placeholder="Search by oppurtunity name or project Id..." bind:value={searchQuery} />
-    </div>
-    
-      <div class="sort">
-        <button id="sortBtn">Sort <i class="fa fa-sort"></i></button>
-        <div id="sortContent" class="sort-content">
-          <select id="selections" multiple>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-            <option value="option5">Option 5</option>
-          </select>
+        <input id="search-input" type="text" placeholder="Search by oppurtunity name or project Id..." bind:value={searchQuery} />
+        <div class="sort">
+          <div><span id="sortBtn" class="material-symbols-outlined">
+            swap_vert
+            </span></div>
+          <div id="sortContent" class="sort-content">
+              <label id="sort-by">Sort by</label><br>
+              <input type="radio" name="sortOption" value="option1"> Option 1 <br>
+              <input type="radio" name="sortOption" value="option2"> Option 2 <br>
+              <input type="radio" name="sortOption" value="option3"> Option 3 <br>
+              <input type="radio" name="sortOption" value="option4"> Option 4 <br>
+              <input type="radio" name="sortOption" value="option5"> Option 5 <br>
+
+          </div>
         </div>
-      </div>
-   </div>
-   
-
- <div class="container">
-
-    <div>
-    <label>Category (All)</label>
-    <select name="category" id="category" multiple>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-        <option value="5">Option 5</option>
-    </select>
+     </div>
     </div>
-
-    <div>
-    <label>Industry (All)</label>
-    <select name="industry" id="industry" multiple>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-        <option value="5">Option 5</option>
-    </select>
-    </div>
-
-    <div>
-    <label>Status (All)</label>
-    <select name="status" id="status" multiple>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-        <option value="5">Option 5</option>
-    </select>
-    </div>
-
-    <button type="button" class="btn_showresult">Show result</button>
+       
+ <div class="head-two">
+    <div class="container">
+      <div>
+        <label style="font-size: medium;">Category (All)</label>
+        <select name="category" id="category" multiple>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+        </div>
     
+        <div>
+        <label>Industry (All)</label>
+        <select name="industry" id="industry" multiple>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+        </div>
+    
+        <div>
+        <label>Status (All)</label>
+        <select name="status" id="status" multiple>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+        </div>
+        <button type="button" class="btn_showresult">Result</button>
+    </div>
  </div>
-
-
+ 
+<div class="hero">
   <table class="table">
     <thead>
       <tr>
@@ -91,7 +96,7 @@
     </thead>
     <tbody>
       <tr>
-          <td><div class="col-round"><i class="fa-solid fa-caret-up"></i></div></td>
+          <td><span id="category-icon" class="material-symbols-outlined">change_history</span></td>
           <td>Column</td>
           <td>Column</td>
           <td>Column</td>
@@ -103,7 +108,7 @@
         </tr>
 
         <tr>
-          <td><div class="col-round"><i class="fa-solid fa-caret-up"></i></div></td>
+          <td><span id="category-icon" class="material-symbols-outlined">change_history</span></td>
           <td>Column</td>
           <td>Column</td>
           <td>Column</td>
@@ -115,7 +120,7 @@
         </tr>
 
         <tr>
-          <td><div class="col-round"><i class="fa-solid fa-caret-up"></i></div></td>
+          <td><span id="category-icon" class="material-symbols-outlined">change_history</span></td>
           <td>Column</td>
           <td>Column</td>
           <td>Column</td>
@@ -127,7 +132,7 @@
         </tr>
 
         <tr>
-          <td><div class="col-round"><i class="fa-solid fa-caret-up"></i></div></td>
+          <td><span id="category-icon" class="material-symbols-outlined">change_history</span></td>
           <td>Column</td>
           <td>Column</td>
           <td>Column</td>
@@ -139,7 +144,7 @@
         </tr>
 
         <tr>
-          <td><div class="col-round"><i class="fa-solid fa-caret-up"></i></div></td>
+          <td><span id="category-icon" class="material-symbols-outlined">change_history</span></td>
           <td>Column</td>
           <td>Column</td>
           <td>Column</td>
@@ -151,7 +156,7 @@
         </tr>
 
         <tr>
-          <td><div class="col-round"><i class="fa-solid fa-caret-up"></i></div></td>
+          <td><span id="category-icon" class="material-symbols-outlined">change_history</span></td>
           <td>Column</td>
           <td>Column</td>
           <td>Column</td>
@@ -160,18 +165,20 @@
           <td><button class="status-btn">Active</button></td>
           <td class="action"><i class="fa-solid fa-paperclip"></i> <i class="fa-regular fa-comments"></i> <i class="fa-regular fa-plus"></i></td>
         </tr>
-  </tbody>
+      </tbody>
 </table>
 
+
 <div class="btns">
-    <button class="btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
-    <div class="tabs-num">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-    </div>
-    <button class="btn-next">Next <i class="fa fa-arrow-right"></i></button>
+  <button class="btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+  <div class="tab-num">
+      <button id="tab-num-active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+  </div>
+  <button class="btn-next">Next <i class="fa fa-arrow-right"></i></button>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
